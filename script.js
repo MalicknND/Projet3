@@ -79,3 +79,18 @@ function newQuote() {
   author.innerHTML = quotes[random][1];
   infos.innerHTML = "- " + quotes[random][2];
 }
+//On crée une fonction qui nous permet de twitter
+
+const btnTwitter = document.querySelector(".share-twitter");
+
+function shareQuote() {
+  const hashtag = quotes[random][1].replace(/ /g, ""); //le g veut dire cibler de maniere generale
+  window.open(
+    "https://twitter.com/intent/tweet?text=" +
+      quotes[random][0] +
+      "&hashtags=" +
+      hashtag
+  );
+}
+
+btnTwitter.addEventListener("click", shareQuote);
